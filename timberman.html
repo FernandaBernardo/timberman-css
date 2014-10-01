@@ -2,48 +2,16 @@
 <html>
 <head>
 	<title>Timberman CSS</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
 	<link rel="stylesheet" type="text/css" href="timberman.css">
 </head>
 <body>
-	<form class="jogo">
-		<fieldset class="inputs-direita">
-			<label for="g1" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="g1">
-			<label for="g2" class="galho-desenho mata"></label>
-			<input type="checkbox" class="galho" id="g2">
-			<label for="g3" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="g3">
-			<label for="g4" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="g4">
-			<label for="g5" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="g5">
-			<label for="g6" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="g6">
-			<label for="g7" class="galho-desenho mata"></label>
-			<input type="checkbox" class="galho" id="g7">
-			<label for="g8" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="g8">
-		</fieldset>
-		<fieldset class="inputs-esquerda">
-			<label for="e-g1" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="e-g1">
-			<label for="e-g2" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="e-g2">
-			<label for="e-g3" class="galho-desenho mata"></label>
-			<input type="checkbox" class="galho" id="e-g3">
-			<label for="e-g4" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="e-g4">
-			<label for="e-g5" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="e-g5">
-			<label for="e-g6" class="galho-desenho mata"></label>
-			<input type="checkbox" class="galho" id="e-g6">
-			<label for="e-g7" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="e-g7">
-			<label for="e-g8" class="galho-desenho"></label>
-			<input type="checkbox" class="galho" id="e-g8">
-		</fieldset>
-		<div class="timberman">
-			
+	<form>
+		<input type="text" id="bloco1" pattern="a" required autofocus />  
+		<input type="text" id="bloco2" pattern="d" required />
+		
+		<div class="jogo">
+			<div class="timberman"></div>
 		</div>
 	</form>
 </body>
