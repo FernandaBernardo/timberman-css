@@ -27,7 +27,6 @@ input {
   position: absolute;
   top: 0;
   left: 100%;
-  transition: padding-top 0s 99999s linear;
 }
 
 .timberman {
@@ -37,12 +36,9 @@ input {
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 1;
 }
 
-input:valid .jogo {
-  transition: padding-top 0s linear;
-  padding-top: 100px;
-}
 
 #bloco1:valid ~ .jogo .timberman, #bloco2:invalid ~ .jogo .timberman {
   right: calc(100% - 100px);
@@ -63,15 +59,22 @@ input:valid .jogo {
   background-color: red;
 }
 
+.fundo-direito, .fundo-esquerdo {
+  bottom:0;
+  position: absolute;
+  transition: bottom 0s 99999s linear;
+}
+
 .fundo-direito {
-  float: right;
+  right: 0;
 }
 
 .fundo-esquerdo {
-  float: left;
+  left: 0;
 }
 
-input:focus:not(:first-child) ~ .jogo{
-  transition: padding-top 1s linear;
-  padding-top: 10vh;
+input:focus:not(:first-child) ~ .jogo .fundo-direito,
+input:focus:not(:first-child) ~ .jogo .fundo-esquerdo{
+  transition: bottom 1s linear;
+  bottom: -100px;
 }
