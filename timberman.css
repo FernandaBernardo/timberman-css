@@ -2,23 +2,32 @@
   box-sizing: border-box;
 }
 
-html {
-  width: 100vw;
-  height: 100vh;
+html, body {
+  overflow: hidden;
+  height: 100%;
   background-color: #ccc;
+}
+
+form {
+  width: 50%;
+  background-color: black;
+  position: relative;
+  padding: 2em;
 }
 
 input {
   display: block;
-  margin: 2em;
   width: 50%;
 }
 
 .jogo {
   background-color: blue;
-  height: 50vh;
+  height: 100vh;
   width: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transition: padding-top 0s 99999s linear;
 }
 
 .timberman {
@@ -26,14 +35,43 @@ input {
   height: 100px;
   background-color: lightblue;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
 }
 
-#bloco1:focus:valid ~ .jogo .timberman, #bloco2:focus:invalid ~ .jogo .timberman {
+input:valid .jogo {
+  transition: padding-top 0s linear;
+  padding-top: 100px;
+}
+
+#bloco1:valid ~ .jogo .timberman, #bloco2:invalid ~ .jogo .timberman {
   right: calc(100% - 100px);
 }
 
-#bloco1:focus:invalid ~ .jogo .timberman, #bloco2:focus:valid ~ .jogo .timberman {
+#bloco1:invalid ~ .jogo .timberman, #bloco2:valid ~ .jogo .timberman {
   left: calc(100% - 100px);
+}
+
+.bloco {
+  width: 100px;
+  height: 100px;
+  background-color: lightgreen;
+  border: 1px solid green;
+}
+
+.bloco.mata {
+  background-color: red;
+}
+
+.fundo-direito {
+  float: right;
+}
+
+.fundo-esquerdo {
+  float: left;
+}
+
+input:focus:not(:first-child) ~ .jogo{
+  transition: padding-top 1s linear;
+  padding-top: 10vh;
 }
