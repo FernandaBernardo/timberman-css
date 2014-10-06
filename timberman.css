@@ -1,72 +1,119 @@
-* { 
-	margin: 0;
-	padding: 0;
+* {
+  box-sizing: border-box;
 }
 
 html, body {
-	height: 100%;
-	overflow: hidden;
+  overflow: hidden;
+  height: 100%;
+  background-color: #ccc;
+}
+
+form {
+  width: 50%;
+  background-color: black;
+  position: relative;
+  padding: 2em;
+}
+
+input {
+  display: block;
+  width: 50%;
 }
 
 .jogo {
-	position: relative;
-	width: 100vw;
-	height: 100%;
-	background-color: #ccc;
-	transition: padding-top 0s 99999s linear;
-}
-
-.jogo:active {
-	transition: padding-top 1s linear;
-	padding-top: 190vw;
-}
-
-.galho {
-	display: none;
-}
-
-.galho-desenho {
-	display: block;
-	width: 21vw;
-	height: 21vw;
-	border-bottom: 2px solid darkblue;
-	background-color: blue;
-}
-
-.galho-desenho.mata {
-	background-color: purple;
-}
-
-[class *= "inputs-"] {
-	position: absolute;
-	bottom: 0;
-}
-
-.inputs-direita {
-	right: 0;
-}
-
-.inputs-esquerda {
-	left: 0;
+  background-color: blue;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: url('chao.png');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 100px;
 }
 
 .timberman {
-	background-color: red;
-	width: 15vw;
-	height: 15vw;
-	position: absolute;
-	display: block;
-	z-index: 10;
-	transition: all 0s 99999s linear;
-	top: calc(100vh - 15vw);
+  width: 200px;
+  height: 200px;
+  background: url('timberman.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  z-index: 1;
 }
 
-.inputs-direita:active ~ .timberman {
-	transition: margin-left 0s linear;
-	margin-left: calc(100% - 15vw);
+[id *= "bloco"]:focus:invalid ~ .jogo .timberman  {
+  left: calc(100% - 200px);
 }
 
-.inputs-esquerda:active ~ .timberman {
-	transition: margin-right 0s linear;
-	margin-right: calc(100% - 15vw);
+[id *= "bloco"]:valid ~ .jogo .timberman  {
+  right: calc(100% - 200px);
+}
+
+.bloco {
+  width: 200px;
+  height: 200px;
+  background: url('tronco.png');
+  background-repeat: no-repeat;
+
+}
+
+.bloco.mata {
+  background-color: red;
+}
+
+#bloco2:focus:valid ~ .jogo .timberman {
+  background: url('rip.png');
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.fundo-direito, .fundo-esquerdo {
+  bottom: 100px;
+  position: absolute;
+  transition: bottom 0s 99999s linear;
+}
+
+.fundo-direito {
+  right: 0;
+}
+
+.fundo-esquerdo {
+  left: 0;
+}
+
+input:focus:not(:first-child) ~ .jogo .fundo-direito,
+input:focus:not(:first-child) ~ .jogo .fundo-esquerdo{
+  transition: bottom 1s linear;
+}
+
+#bloco2:focus ~ .jogo .fundo-direito,
+#bloco2:focus ~ .jogo .fundo-esquerdo{
+  bottom: -100px;
+}
+#bloco3:focus ~ .jogo .fundo-direito,
+#bloco3:focus ~ .jogo .fundo-esquerdo{
+  bottom: -300px;
+}
+#bloco4:focus ~ .jogo .fundo-direito,
+#bloco4:focus ~ .jogo .fundo-esquerdo{
+  bottom: -500px;
+}
+#bloco5:focus ~ .jogo .fundo-direito,
+#bloco5:focus ~ .jogo .fundo-esquerdo{
+  bottom: -700px;
+}
+#bloco6:focus ~ .jogo .fundo-direito,
+#bloco6:focus ~ .jogo .fundo-esquerdo{
+  bottom: -900px;
+}
+#bloco7:focus ~ .jogo .fundo-direito,
+#bloco7:focus ~ .jogo .fundo-esquerdo{
+  bottom: -1000px;
 }
