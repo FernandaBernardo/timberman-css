@@ -46,26 +46,30 @@ input {
   z-index: 1;
 }
 
-[id *= "bloco"]:focus:invalid ~ .jogo .timberman  {
-  left: calc(100% - 200px);
-}
-
-[id *= "bloco"]:valid ~ .jogo .timberman  {
-  right: calc(100% - 200px);
-}
-
-#bloco3:focus:invalid ~ .jogo .timberman {
+/*.esquerda.direita.mata:focus:valid ~ .jogo .timberman {
   background: url('rip.png');
   width: 200px;
   height: 200px;
   background-repeat: no-repeat;
   background-size: contain;
+}*/
+
+.esquerda.direita:valid + input:focus ~ .jogo .timberman,
+.esquerda:valid + input:focus ~ .jogo .timberman,
+.direita:invalid + input:focus ~ .jogo .timberman {
+    left: 0px;
+}
+
+.esquerda.direita:invalid + input:focus ~ .jogo .timberman,
+.esquerda:invalid + input:focus ~ .jogo .timberman,
+.direita:valid + input:focus ~ .jogo .timberman {
+  left: calc(100% - 200px);
 }
 
 .fundo {
   width: 100%;
   height: calc(100vh - 200px);
-  bottom: 1710px;
+  bottom: 1900px;
   position: absolute;
   transition: bottom 0s 99999s linear;
 }
@@ -100,20 +104,35 @@ input:focus:not(:first-child) ~ .jogo .fundo {
 }
 
 #bloco2:focus ~ .jogo .fundo {
-  bottom: 1520px;
+  bottom: 1710px;
 }
 #bloco3:focus ~ .jogo .fundo {
-  bottom: 1330px;
+  bottom: 1520px;
 }
 #bloco4:focus ~ .jogo .fundo {
-  bottom: 1140px;
+  bottom: 1330px;
 }
 #bloco5:focus ~ .jogo .fundo {
-  bottom: 950px;
+  bottom: 1140px;
 }
 #bloco6:focus ~ .jogo .fundo {
-  bottom: 760px;
+  bottom: 950px;
 }
 #bloco7:focus ~ .jogo .fundo {
+  bottom: 760px;
+}
+#bloco8:focus ~ .jogo .fundo {
   bottom: 570px;
+}
+#bloco9:focus ~ .jogo .fundo {
+  bottom: 380px;
+}
+#bloco10:focus ~ .jogo .fundo {
+  bottom: 190px;
+}
+#bloco11:focus ~ .jogo .fundo {
+  bottom: 0px;
+}
+#bloco12:focus ~ .jogo .fundo {
+  bottom: -190px;
 }
