@@ -36,7 +36,7 @@ input {
 .timberman {
   width: 200px;
   height: 200px;
-  background: url('timberman.png');
+  background: url('timberman-esquerda.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -46,24 +46,61 @@ input {
   z-index: 1;
 }
 
-/*.esquerda.direita.mata:focus:valid ~ .jogo .timberman {
+@-webkit-keyframes timberman-esquerda {
+  0%, 50% {
+    background: url('timberman-esquerda-baixo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  51%, 100% {
+    background: url('timberman-esquerda.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+@-webkit-keyframes timberman-direita {
+  0%,50% {
+    background: url('timberman-direita-baixo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  51%,100% {
+    background: url('timberman-direita.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.esquerda:invalid + .mata:focus ~ .jogo .timberman,
+.direita:invalid + .mata:focus ~ .jogo .timberman {
   background: url('rip.png');
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   background-repeat: no-repeat;
   background-size: contain;
-}*/
+}
 
 .esquerda.direita:valid + input:focus ~ .jogo .timberman,
 .esquerda:valid + input:focus ~ .jogo .timberman,
 .direita:invalid + input:focus ~ .jogo .timberman {
-    left: 0px;
+    left: 0;
+    -webkit-animation-name: timberman-esquerda;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: infinite;
 }
 
 .esquerda.direita:invalid + input:focus ~ .jogo .timberman,
 .esquerda:invalid + input:focus ~ .jogo .timberman,
 .direita:valid + input:focus ~ .jogo .timberman {
   left: calc(100% - 200px);
+  /*background: url('timberman-direita-baixo.png')  ;*/
+  -webkit-animation-name: timberman-direita;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-iteration-count: infinite;
 }
 
 .fundo {
