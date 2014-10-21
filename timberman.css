@@ -13,6 +13,7 @@ form {
   background-color: black;
   position: relative;
   padding: 2em;
+  height: 100vh;
 }
 
 input {
@@ -26,11 +27,18 @@ input {
   position: absolute;
   top: 0;
   left: 100%;
+}
+
+.chao {
   background: url('chao.png');
   background-position: center bottom;
   background-repeat: no-repeat;
-  background-size: 100% 100px;
-  z-index: 2;
+  background-size: 100% 103px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 100vh;
+  z-index: 3;
 }
 
 .timberman {
@@ -43,7 +51,7 @@ input {
   position: absolute;
   bottom: 100px;
   left: 0;
-  z-index: 1;
+  z-index: 4;
 }
 
 @-webkit-keyframes timberman-esquerda {
@@ -75,6 +83,12 @@ input {
   }
 }
 
+#bloco1:focus ~ .jogo .timberman {
+  -webkit-animation-name: timberman-esquerda;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-iteration-count: infinite;
+}
+
 .esquerda:invalid + .mata:focus ~ .jogo .timberman,
 .direita:invalid + .mata:focus ~ .jogo .timberman {
   background: url('rip.png');
@@ -82,6 +96,15 @@ input {
   height: 100px;
   background-repeat: no-repeat;
   background-size: contain;
+  -webkit-animation: none;
+}
+
+.esquerda:invalid + .mata:focus ~ .jogo .chao,
+.direita:invalid + .mata:focus ~ .jogo .chao {
+  background: url('game-over.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: 4;
 }
 
 .esquerda.direita:valid + input:focus ~ .jogo .timberman,
@@ -97,7 +120,6 @@ input {
 .esquerda:invalid + input:focus ~ .jogo .timberman,
 .direita:valid + input:focus ~ .jogo .timberman {
   left: calc(100% - 200px);
-  /*background: url('timberman-direita-baixo.png')  ;*/
   -webkit-animation-name: timberman-direita;
   -webkit-animation-duration: 0.5s;
   -webkit-animation-iteration-count: infinite;
@@ -106,9 +128,14 @@ input {
 .fundo {
   width: 100%;
   height: calc(100vh - 200px);
-  bottom: 1900px;
+  bottom: 2470px;
   position: absolute;
   transition: bottom 0s 99999s linear;
+  counter-reset: section 15;
+}
+
+.fundo div {
+  position: relative;
 }
 
 .fundo .tronco {
@@ -117,7 +144,6 @@ input {
   background-size: contain;
   width: 100%;
   height: 190px;
-  z-index: 1;
 }
 
 .fundo .galho-direito {
@@ -141,35 +167,49 @@ input:focus:not(:first-child) ~ .jogo .fundo {
 }
 
 #bloco2:focus ~ .jogo .fundo {
-  bottom: 1710px;
+  bottom: 2280px;
 }
 #bloco3:focus ~ .jogo .fundo {
-  bottom: 1520px;
+  bottom: 2090px;
 }
 #bloco4:focus ~ .jogo .fundo {
-  bottom: 1330px;
+  bottom: 1900px;
 }
 #bloco5:focus ~ .jogo .fundo {
-  bottom: 1140px;
+  bottom: 1710px;
 }
 #bloco6:focus ~ .jogo .fundo {
-  bottom: 950px;
+  bottom: 1520px;
 }
 #bloco7:focus ~ .jogo .fundo {
-  bottom: 760px;
+  bottom: 1330px;
 }
 #bloco8:focus ~ .jogo .fundo {
-  bottom: 570px;
+  bottom: 1140px;
 }
 #bloco9:focus ~ .jogo .fundo {
-  bottom: 380px;
+  bottom: 950px;
 }
 #bloco10:focus ~ .jogo .fundo {
-  bottom: 190px;
+  bottom: 760px;
 }
 #bloco11:focus ~ .jogo .fundo {
-  bottom: 0px;
+  bottom: 570px;
 }
 #bloco12:focus ~ .jogo .fundo {
-  bottom: -190px;
+  bottom: 380px;
+}
+
+input:focus ~ .jogo .fundo div:before {
+  counter-increment: section -1;
+  content: counter(section);
+  display: inline-block;
+  font-size: 3em;
+  font-family: Arial;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+  z-index: 3;
+  position: absolute;
+  left: 48%;
+  top: 40%;
 }
