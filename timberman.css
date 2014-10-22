@@ -17,8 +17,10 @@ form {
 }
 
 input {
-  display: block;
-  width: 50%;
+  width: 20%;
+  background-color: #ccc;
+  border: none;
+  text-align: center;
 }
 
 .jogo {
