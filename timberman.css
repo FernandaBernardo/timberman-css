@@ -7,236 +7,42 @@ html, body {
   height: 100%;
   background-color: #ccc;
 }
-/*
-form {
+
+.arvore {
+  position: absolute;
+  bottom: 190px;
+  right: 0;
   width: 50%;
-  background-color: black;
-  position: relative;
-  padding: 2em;
-  height: 100vh;
 }
-
-input {
-  width: 20%;
-  background-color: #ccc;
-  border: none;
-  text-align: center;
-}
-
-.jogo {
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 100%;
-}
-
-.chao {
-  background: url('chao.png');
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  background-size: 100% 103px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  height: 100vh;
-  z-index: 3;
-}
-
-.timberman {
-  width: 200px;
-  height: 200px;
-  background: url('timberman-esquerda.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-  bottom: 100px;
-  left: 0;
-  z-index: 4;
-}
-
-@-webkit-keyframes timberman-esquerda {
-  0%, 50% {
-    background: url('timberman-esquerda-baixo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  51%, 100% {
-    background: url('timberman-esquerda.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-}
-@-webkit-keyframes timberman-direita {
-  0%,50% {
-    background: url('timberman-direita-baixo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  51%,100% {
-    background: url('timberman-direita.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-}
-
-#bloco1:focus ~ .jogo .timberman {
-  -webkit-animation-name: timberman-esquerda;
-  -webkit-animation-duration: 0.5s;
-  -webkit-animation-iteration-count: infinite;
-}
-
-.esquerda:invalid + .mata:focus ~ .jogo .timberman,
-.direita:invalid + .mata:focus ~ .jogo .timberman {
-  background: url('rip.png');
-  width: 100px;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  -webkit-animation: none;
-}
-
-.esquerda:invalid + .mata:focus ~ .jogo .chao,
-.direita:invalid + .mata:focus ~ .jogo .chao {
-  background: url('game-over.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  z-index: 4;
-}
-
-.esquerda.direita:valid + input:focus ~ .jogo .timberman,
-.esquerda:valid + input:focus ~ .jogo .timberman,
-.direita:invalid + input:focus ~ .jogo .timberman {
-    left: 0;
-    -webkit-animation-name: timberman-esquerda;
-    -webkit-animation-duration: 0.5s;
-    -webkit-animation-iteration-count: infinite;
-}
-
-.esquerda.direita:invalid + input:focus ~ .jogo .timberman,
-.esquerda:invalid + input:focus ~ .jogo .timberman,
-.direita:valid + input:focus ~ .jogo .timberman {
-  left: calc(100% - 200px);
-  -webkit-animation-name: timberman-direita;
-  -webkit-animation-duration: 0.5s;
-  -webkit-animation-iteration-count: infinite;
-}
-
-.fundo {
-  width: 100%;
-  height: calc(100vh - 200px);
-  bottom: 2470px;
-  position: absolute;
-  transition: bottom 0s 99999s linear;
-  counter-reset: section 15;
-}
-
-.fundo div {
-  position: relative;
-}
-
-.fundo .tronco {
-  background: url('tronco.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  height: 190px;
-}
-
-.fundo .galho-direito {
-  background: url('galho-direito.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  height: 190px;
-}
-
-.fundo .galho-esquerdo {
-  background: url('galho-esquerdo.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  height: 190px;
-}
-
-input:focus:not(:first-child) ~ .jogo .fundo {
-  transition: bottom 1s cubic-bezier(0, 1, 0, 1);
-}
-
-#bloco2:focus ~ .jogo .fundo {
-  bottom: 2280px;
-}
-#bloco3:focus ~ .jogo .fundo {
-  bottom: 2090px;
-}
-#bloco4:focus ~ .jogo .fundo {
-  bottom: 1900px;
-}
-#bloco5:focus ~ .jogo .fundo {
-  bottom: 1710px;
-}
-#bloco6:focus ~ .jogo .fundo {
-  bottom: 1520px;
-}
-#bloco7:focus ~ .jogo .fundo {
-  bottom: 1330px;
-}
-#bloco8:focus ~ .jogo .fundo {
-  bottom: 1140px;
-}
-#bloco9:focus ~ .jogo .fundo {
-  bottom: 950px;
-}
-#bloco10:focus ~ .jogo .fundo {
-  bottom: 760px;
-}
-#bloco11:focus ~ .jogo .fundo {
-  bottom: 570px;
-}
-#bloco12:focus ~ .jogo .fundo {
-  bottom: 380px;
-}
-
-input:focus ~ .jogo .fundo div:before {
-  counter-increment: section -1;
-  content: counter(section);
-  display: inline-block;
-  font-size: 3em;
-  font-family: Arial;
-  color: #fff;
-  text-shadow: 2px 2px #000;
-  z-index: 3;
-  position: absolute;
-  left: 48%;
-  top: 40%;
-}*/
 
 .sprite {
   background-repeat: no-repeat;
   background-size: contain;
-  width: 50%;
+  width: 100%;
   height: 190px;
-  position: absolute;
-  right: 0;
-  display: inline-block;
+  display: block;
 }
 
 .timberman {
-  width: 200px;
-  height: 200px;
-  background: url('timberman-esquerda.png');
-  background-size: contain;
+  width: 213px;
+  height: 285px;
+  background: url('timberman.png');
+  background-size: auto 100%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 0 0;
   position: absolute;
   bottom: 160px;
   left: 50%;
   z-index: 2;
+  animation: timberman-esquerda 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(2);
+}
+
+@keyframes timberman-esquerda {
+  100% {
+    background-position: -426px 0;
+  }
 }
 
 .tronco {
@@ -247,84 +53,261 @@ input:focus ~ .jogo .fundo div:before {
   background: url('galho-direito.png');
 }
 
+.galho-esquerdo {
+  background: url('galho-esquerdo.png');
+}
+
 .chao {
   background: url('chao.png');
-  bottom: 0;
+  bottom: 0px;
   background-repeat: no-repeat;
   background-size: contain;
   width: 50%;
   height: 190px;
   position: absolute;
   right: 0;
-  display: inline-block;
+  display: block;
 }
 
-[name="bloco1"] + .sprite {
-  bottom: 2090px;
+label {
+  position: absolute;
+  height: 100%;
+  width: 250px;
+  top: 0%;
+  z-index: 4;
 }
-[name="bloco2"] + .sprite {
-  bottom: 1900px;
+
+[for$="esq"] {
+  left: 50%;
 }
-[name="bloco3"] + .sprite {
-  bottom: 1900px;
+[for$="dir"] {
+  right: 0;
 }
-[name="bloco4"] + .sprite {
-  bottom: 1710px;
+
+label:nth-of-type(n+3) {
+  display: none;
 }
-[name="bloco5"] + .sprite {
-  bottom: 1520px;
+
+:checked ~ label {
+  display: none;
 }
-[name="bloco6"] + .sprite {
-  bottom: 1330px;
+
+[id^="bloco1"]:checked ~ [for^="bloco2"] {
+  display: block;
 }
-[name="bloco7"] + .sprite {
-  bottom: 1140px;
+[id^="bloco2"]:checked ~ [for^="bloco3"] {
+  display: block;
 }
-[name="bloco8"] + .sprite {
-  bottom: 950px;
+[id^="bloco3"]:checked ~ [for^="bloco4"] {
+  display: block;
 }
-[name="bloco9"] + .sprite {
-  bottom: 760px;
+[id^="bloco4"]:checked ~ [for^="bloco5"] {
+  display: block;
 }
-[name="bloco10"] + .sprite {
-  bottom: 570px;
+[id^="bloco5"]:checked ~ [for^="bloco6"] {
+  display: block;
 }
-[name="bloco11"] + .sprite {
-  bottom: 380px;
+[id^="bloco6"]:checked ~ [for^="bloco7"] {
+  display: block;
 }
-[name="bloco12"] + .sprite {
-  bottom: 190px;
+[id^="bloco7"]:checked ~ [for^="bloco8"] {
+  display: block;
+}
+[id^="bloco8"]:checked ~ [for^="bloco9"] {
+  display: block;
+}
+[id^="bloco9"]:checked ~ [for^="bloco10"] {
+  display: block;
+}
+[id^="bloco10"]:checked ~ [for^="bloco11"] {
+  display: block;
+}
+[id^="bloco11"]:checked ~ [for^="bloco12"] {
+  display: block;
 }
 
 .sprite {
   transition: transform 1s cubic-bezier(0,1,0,1);
 }
 
-:checked ~ .sprite {
+:checked ~ .arvore .sprite {
   transform: translateY(190px);
 }
-:checked ~ :checked ~ .sprite {
+:checked ~ :checked ~ .arvore .sprite {
   transform: translateY(380px);
 }
-:checked ~ :checked ~ :checked ~ .sprite {
+:checked ~ :checked ~ :checked ~ .arvore .sprite {
   transform: translateY(570px);
 }
+:checked ~ :checked ~ :checked ~ :checked ~ .arvore .sprite {
+  transform: translateY(760px);
+}
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .arvore .sprite {
+  transform: translateY(950px);
+}
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .arvore .sprite {
+  transform: translateY(1140px);
+}
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .arvore .sprite {
+  transform: translateY(1330px);
+}
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .arvore .sprite {
+  transform: translateY(1520px);
+}
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .arvore .sprite {
+  transform: translateY(1710px);
+}
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .arvore .sprite {
+  transform: translateY(1900px);
+}
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .arvore .sprite {
+  transform: translateY(2090px);
+}
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .arvore .sprite {
+  transform: translateY(2280px);
+}
 
-.morte {
-  display: none;
-  background-color: #000;
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .venceu {
+  display: block;
+}
+
+.morreu,
+.mata:checked + .progresso + .morreu,
+.mata:checked + input + .progresso + .morreu {
+  background: url('game-over.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70% auto;
   width: 50%;
   height: 100%;
   position: absolute;
-  top: 0;
   right: 0;
   z-index: 999;
+  top: -30%;
+  animation: morre 5s;
+  animation-fill-mode: both;
 }
 
-.galho-direito [value="dir"]:checked ~ .morte {
-  display: block;
+.mata:checked + .progresso + .morreu,
+.mata:checked + input + .progresso + .morreu {
+  animation-delay: -5s;
+}
+
+.mata:checked ~ .progresso {
+  display: none;
+}
+
+@keyframes morre {
+  0%, 99% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+.venceu {
+  display: none;
+  background-color: green;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  z-index: 999;
+  top: 0;
+}
+
+.mata:checked ~ .timberman {
+  background: url('rip.png');
+  background-repeat: no-repeat;
+  background-size: 105px;
+  background-position: center;
+  bottom: 100px;
+  animation: none;
 }
 
 [value="dir"]:focus:checked ~ .timberman {
   left: calc(100% - 200px);
+  transform: scaleX(-1);
+}
+
+[value="esq"]:focus:checked ~ .timberman {
+  left: 50%
+}
+
+[name="bloco1"] + .progresso,
+[name="bloco1"] + .progresso + .morreu {
+  animation-delay: 0;
+}
+[name="bloco2"] + .progresso,
+[name="bloco2"] + .progresso + .morreu {
+  animation-delay: 0.5s;
+}
+[name="bloco3"] + .progresso,
+[name="bloco3"] + .progresso + .morreu {
+  animation-delay: 1s;
+}
+[name="bloco4"] + .progresso,
+[name="bloco4"] + .progresso + .morreu {
+  animation-delay: 1.5s;
+}
+[name="bloco5"] + .progresso,
+[name="bloco5"] + .progresso + .morreu {
+  animation-delay: 2s;
+}
+[name="bloco6"] + .progresso,
+[name="bloco6"] + .progresso + .morreu {
+  animation-delay: 2.5s;
+}
+[name="bloco7"] + .progresso,
+[name="bloco7"] + .progresso + .morreu {
+  animation-delay: 3s;
+}
+[name="bloco8"] + .progresso,
+[name="bloco8"] + .progresso + .morreu {
+  animation-delay: 3.5s;
+}
+[name="bloco9"] + .progresso,
+[name="bloco9"] + .progresso + .morreu {
+  animation-delay: 4s;
+}
+[name="bloco10"] + .progresso,
+[name="bloco10"] + .progresso + .morreu {
+  animation-delay: 4.5s;
+}
+[name="bloco11"] + .progresso,
+[name="bloco11"] + .progresso + .morreu {
+  animation-delay: 5s;
+}
+[name="bloco12"] + .progresso,
+[name="bloco12"] + .progresso + .morreu {
+  animation-delay: 5.5s;
+}
+
+.vive:checked + input + .progresso, 
+.vive:checked + input + .progresso + .morreu, 
+.vive:checked + .progresso, 
+.vive:checked + .progresso + .morreu {
+  display: none;
+}
+
+.progresso {
+  top: 0;
+  left: 50%;
+  height: 2em;
+  background-color: red;
+  animation: preenche 5s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  position: absolute;
+  z-index: 999;
+}
+
+@keyframes preenche {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 50%;
+  }
 }
