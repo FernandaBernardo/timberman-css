@@ -250,6 +250,13 @@ input:focus ~ .jogo .fundo div:before {
 .chao {
   background: url('chao.png');
   bottom: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 50%;
+  height: 190px;
+  position: absolute;
+  right: 0;
+  display: inline-block;
 }
 
 [name="bloco1"] + .sprite {
@@ -289,8 +296,18 @@ input:focus ~ .jogo .fundo div:before {
   bottom: 190px;
 }
 
-input:checked ~ .sprite {
-  transition: bottom 1s cubic-bezier(0,1,0,1);
+.sprite {
+  transition: transform 1s cubic-bezier(0,1,0,1);
+}
+
+:checked ~ .sprite {
+  transform: translateY(190px);
+}
+:checked ~ :checked ~ .sprite {
+  transform: translateY(380px);
+}
+:checked ~ :checked ~ :checked ~ .sprite {
+  transform: translateY(570px);
 }
 
 .morte {
