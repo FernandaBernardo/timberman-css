@@ -165,7 +165,7 @@ input {
 }
 
 input:focus:not(:first-child) ~ .jogo .fundo {
-  transition: bottom 1s linear;
+  transition: bottom 1s cubic-bezier(0, 1, 0, 1);
 }
 
 #bloco2:focus ~ .jogo .fundo {
