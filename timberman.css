@@ -23,28 +23,6 @@ html, body {
   display: block;
 }
 
-.timberman {
-  width: 213px;
-  height: 285px;
-  background: url('timberman.png');
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  position: absolute;
-  bottom: 160px;
-  left: 50%;
-  z-index: 2;
-  animation: timberman-esquerda 0.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: steps(2);
-}
-
-@keyframes timberman-esquerda {
-  100% {
-    background-position: -426px 0;
-  }
-}
-
 .tronco {
   background: url('tronco.png');
 }
@@ -69,6 +47,28 @@ html, body {
   display: block;
 }
 
+.timberman {
+  width: 213px;
+  height: 285px;
+  background: url('timberman.png');
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  position: absolute;
+  bottom: 160px;
+  left: 50%;
+  z-index: 2;
+  animation: timberman-animation 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(2);
+}
+
+@keyframes timberman-animation {
+  to {
+    background-position: -426px 0;
+  }
+}
+
 label {
   position: absolute;
   height: 100%;
@@ -85,10 +85,6 @@ label {
 }
 
 label:nth-of-type(n+3) {
-  display: none;
-}
-
-:checked ~ label {
   display: none;
 }
 
@@ -127,7 +123,7 @@ label:nth-of-type(n+3) {
 }
 
 .sprite {
-  transition: transform 1s cubic-bezier(0,1,0,1);
+  transition: transform 0.5s cubic-bezier(1,0,1,0);
 }
 
 :checked ~ .arvore .sprite {
@@ -171,9 +167,7 @@ label:nth-of-type(n+3) {
   display: block;
 }
 
-.morreu,
-.mata:checked + .progresso + .morreu,
-.mata:checked + input + .progresso + .morreu {
+.morreu {
   background: url('game-over.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -190,7 +184,8 @@ label:nth-of-type(n+3) {
 
 .mata:checked + .progresso + .morreu,
 .mata:checked + input + .progresso + .morreu {
-  animation-delay: -5s;
+  animation: none;
+  visibility: visible;
 }
 
 .mata:checked ~ .progresso {
