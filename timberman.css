@@ -306,3 +306,20 @@ label:nth-of-type(n+3) {
     width: 50%;
   }
 }
+
+body {
+  counter-reset: points;
+}
+
+[id^="bloco"]:checked {
+  counter-increment: points;
+}
+
+form:after {
+  content: counter(points);
+  position: absolute;
+  left: 75%;
+  top: 10%;
+  font-size: 3em;
+  color: #fff;
+}
